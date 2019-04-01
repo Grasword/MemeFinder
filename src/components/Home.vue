@@ -1,19 +1,27 @@
 <template>
   <div id="main">
-    <input class="mainInput" type="text">
-    <div>Тут будут мемы</div>
+    <app-meme-component></app-meme-component>
   </div>
 </template>
+
+<script>
+import MemeComponent from "./memes/MemeComponent.vue";
+
+export default {
+  data() {
+    return {};
+  },
+  components: {
+    appMemeComponent: MemeComponent
+  }
+};
+</script>
+
 
 <style scoped>
 #main {
   width: 80%;
   margin: auto;
   text-align: center;
-}
-.mainInput {
-  width: 50%;
-  margin: 30px 0;
-  padding: 5px;
 }
 </style>
