@@ -24,15 +24,16 @@ export default {
   },
   computed: {
     filteredMemes() {
-      return this.memes.filter((element) => {
-        return element.name.match(this.filterText);
+      return this.memes.filter(element => {
+        const regex = new RegExp(this.filterText, "i");
+        return regex.test(element.name);
       });
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
 img {
   max-width: 400px;
 }
