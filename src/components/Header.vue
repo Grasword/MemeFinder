@@ -18,7 +18,7 @@
     height: 56px;
     display: flex;
     flex-flow: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: #3533bb;
     padding: 0 20px;
