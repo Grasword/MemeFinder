@@ -1,11 +1,7 @@
 <template>
-  <div>
-    <div>
-      <div>
-        <h2>{{meme.name}}</h2>
-        <img :src="meme.url">
-      </div>
-    </div>
+  <div class="meme">
+    <h2>{{meme.name}}</h2>
+    <img :src="meme.url">
   </div>
 </template>
 
@@ -24,5 +20,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+img {
+  max-width: 600px
+}
+.meme {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
 </style>
