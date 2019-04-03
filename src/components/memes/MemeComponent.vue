@@ -16,7 +16,7 @@
 export default {
   data() {
     return {
-      memes: memeStorage,
+      memes: [],
       filterText: ""
     };
   },
@@ -27,6 +27,9 @@ export default {
         return regex.test(element.name);
       });
     }
+  },
+  created() {
+    this.memes = this.$store.getters.getMemes;
   }
 };
 </script>
