@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import { memeStorage } from "../../memeStorage.js";
-
 export default {
   data() {
     return {
