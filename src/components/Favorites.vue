@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <div v-for="meme in memes" :key="meme.id">
-      {{meme.name}}
-      <img :src="meme.url">
+  <div class="wrapper">
+    <div class="memes">
+      <div v-for="meme in memes" :key="meme.id" class="memes__item">
+        <p>{{meme.name}}</p>
+        <img :src="meme.url">
+      </div>
     </div>
   </div>
 </template>
@@ -28,4 +30,24 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.wrapper {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+img {
+  max-width: 400px;
+}
+.memes {
+  display: flex;
+  flex-flow: row wrap;
+}
+.memes__item {
+  margin: 5px;
+  flex: 1 1 32%;
+}
+</style>
+
 
