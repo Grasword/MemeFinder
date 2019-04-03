@@ -2,6 +2,7 @@
   <div class="meme">
     <h2>{{meme.name}}</h2>
     <img :src="meme.url">
+    <button @click="addFavorite">Add to favorites</button>
   </div>
 </template>
 
