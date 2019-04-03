@@ -16,13 +16,19 @@ export default {
     return {
       meme: memeStorage.find(meme => meme.id === this.id)
     };
+  },
+  methods: {
+    addFavorite() {
+      this.$store.dispatch("addFavorite", this.meme.id);
+      console.log(this.$store.state);
+    }
   }
 };
 </script>
 
 <style scoped>
 img {
-  max-width: 600px
+  max-width: 600px;
 }
 .meme {
   width: 80%;
