@@ -7,15 +7,13 @@
 </template>
 
 <script>
-import { memeStorage } from "../../memeStorage.js";
-
 export default {
   props: {
     id: String
   },
   data() {
     return {
-      meme: memeStorage.find(meme => meme.id === this.id)
+      meme: this.$store.getters.getMemes.find(meme => meme.id === this.id)
     };
   },
   methods: {
