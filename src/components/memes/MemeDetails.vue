@@ -1,8 +1,10 @@
 <template>
-  <div class="meme">
-    <h2>{{meme.name}}</h2>
-    <img :src="meme.url">
-    <button @click="addFavorite">Add to favorites</button>
+  <div class="main">
+    <div class="meme">
+      <h2>{{meme.name}}</h2>
+      <img :src="meme.url">
+    </div>
+    <button @click="addFavorite" class="addFavorite">Add to favorites</button>
   </div>
 </template>
 
@@ -26,6 +28,9 @@ export default {
 </script>
 
 <style scoped>
+.main {
+  text-align: center;
+}
 img {
   max-width: 600px;
 }
@@ -33,5 +38,13 @@ img {
   width: 80%;
   margin: auto;
   text-align: center;
+}
+.addFavorite {
+  margin: 15px auto;
+  padding: 9px;
+  background-color: blue;
+  border: none;
+  color: white;
+  border-radius: 5%;
 }
 </style>
