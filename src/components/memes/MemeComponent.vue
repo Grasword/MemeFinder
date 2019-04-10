@@ -17,7 +17,8 @@ export default {
   data() {
     return {
       memes: [],
-      filterText: ""
+      filterText: "",
+      memesDb: []
     };
   },
   computed: {
@@ -30,6 +31,20 @@ export default {
   },
   created() {
     this.memes = this.$store.getters.getMemes;
+
+    db.collection("memes")
+      .get()
+      .then(snapshot => {
+        snapshot.docs.forEach(doc => {
+          const meme = {
+            id: doc.id,
+            name: doc.data().name,
+            url: doc.data().url
+          };
+          this.memesDb.push(meme);
+        });
+        console.log(this.memesDb);
+      });
   }
 };
 </script>
