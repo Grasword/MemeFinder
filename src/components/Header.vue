@@ -8,6 +8,9 @@
         <li>
           <router-link to="/favorites">Favorites</router-link>
         </li>
+        <li>
+          <router-link to="/addmeme">Add Meme</router-link>
+        </li>
       </ul>
     </nav>
   </header>
