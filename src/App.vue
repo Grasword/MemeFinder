@@ -13,7 +13,7 @@ export default {
     "app-header": Header
   },
   created() {
-    this.$store.dispatch('setMemes')
+    this.$store.dispatch('initMemes')
   }
 };
 </script>

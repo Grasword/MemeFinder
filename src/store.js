@@ -13,7 +13,7 @@ export default new Vuex.Store({
     ADD_FAVORITE(state, meme) {
       state.favorites.push(meme);
     },
-    SET_MEMES(state, memes) {
+    INIT_MEMES(state, memes) {
       state.memes = memes;
     }
   },
@@ -21,7 +21,7 @@ export default new Vuex.Store({
     addFavorite: ({ commit }, meme) => {
       commit("ADD_FAVORITE", meme);
     },
-    setMemes: ({ commit }) => {
+    initMemes: ({ commit }) => {
       db.collection("memes")
         .get()
         .then(snapshot => {
