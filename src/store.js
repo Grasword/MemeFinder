@@ -9,16 +9,16 @@ export default new Vuex.Store({
     memes: [""]
   },
   mutations: {
-    ADD_FAVORITE(state, id) {
-      state.favorites.push(id);
+    ADD_FAVORITE(state, meme) {
+      state.favorites.push(meme);
     },
     SET_MEMES(state, memes) {
       state.memes = memes;
     }
   },
   actions: {
-    addFavorite: ({ commit }, id) => {
-      commit("ADD_FAVORITE", id);
+    addFavorite: ({ commit }, meme) => {
+      commit("ADD_FAVORITE", meme);
     },
     setMemes: ({ commit }) => {
       db.collection("memes")
