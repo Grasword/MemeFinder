@@ -15,6 +15,7 @@ export default new Vuex.Store({
     },
     INIT_MEMES(state, memes) {
       state.memes = memes;
+      state.isLoading = false;
     }
   },
   actions: {
