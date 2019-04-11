@@ -5,8 +5,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    favorites: [""],
-    memes: [""]
+    favorites: [],
+    memes: [],
+    isLoading: true
   },
   mutations: {
     ADD_FAVORITE(state, meme) {
