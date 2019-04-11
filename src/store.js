@@ -25,8 +25,8 @@ export default new Vuex.Store({
       db.collection("memes")
         .get()
         .then(snapshot => {
-          let memes = [];
-          snapshot.docs.forEach(doc => {
+          let memes = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+          commit("INIT_MEMES", memes);
             const meme = {
               id: doc.id,
               name: doc.data().name,
