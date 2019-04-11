@@ -37,6 +37,9 @@ export default new Vuex.Store({
     },
     getMemes: state => {
       return state.memes;
+    },
+    loadingState: state => {
+      return state.isLoading;
     }
   }
 });
