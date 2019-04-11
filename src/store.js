@@ -12,6 +12,9 @@ export default new Vuex.Store({
   mutations: {
     ADD_FAVORITE(state, id) {
       state.favorites.push(id);
+    },
+    SET_MEMES(state, memes) {
+      state.memes = memes;
     }
   },
   actions: {
