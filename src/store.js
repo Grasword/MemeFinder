@@ -28,14 +28,6 @@ export default new Vuex.Store({
         .then(snapshot => {
           let memes = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
           commit("INIT_MEMES", memes);
-            const meme = {
-              id: doc.id,
-              name: doc.data().name,
-              url: doc.data().url
-            };
-            memes.push(meme);
-          });
-          commit("SET_MEMES", memes);
         });
     }
   },
