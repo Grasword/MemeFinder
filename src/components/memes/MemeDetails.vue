@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     addFavorite() {
-      this.$store.dispatch("addFavorite", this.meme.id);
+      this.$store.dispatch("addFavorite", this.meme);
       console.log(this.$store.state);
     }
   }
