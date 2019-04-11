@@ -11,23 +11,15 @@
 </template>
 
 <script>
-import { memeStorage } from "../memeStorage.js";
-import { mapGetters } from "vuex";
 
 export default {
   data() {
     return {
-      memes: memeStorage.filter(meme =>
-        this.$store.getters.getFavorites.some(
-          favoriteId => favoriteId === meme.id
-        )
-      )
+      memes: []
     };
-  },
-  computed: {
-    ...mapGetters({
-      getFavorites: "getFavorites"
-    })
+  }, 
+  created() {
+    this.memes = this.$store.getters.getFavorites;    
   }
 };
 </script>
