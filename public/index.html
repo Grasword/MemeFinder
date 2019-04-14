@@ -6,18 +6,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
     <title>memes</title>
-
+    
+    <!-- Bootstrap -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-
+    <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    
+    <!-- vue tags input -->
+    <script src="https://unpkg.com/@johmun/vue-tags-input/dist/vue-tags-input.js"></script>
   </head>
   <body>
     <noscript>
@@ -29,19 +33,5 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
 
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyDPOsDsy279_qZhulgLvGtO4qempaOP-aQ",
-        authDomain: "memefinder-f5e33.firebaseapp.com",
-        databaseURL: "https://memefinder-f5e33.firebaseio.com",
-        projectId: "memefinder-f5e33",
-        storageBucket: "memefinder-f5e33.appspot.com",
-        messagingSenderId: "808732065991"
-      };
-      firebase.initializeApp(config);
-
-      const db = firebase.firestore();
-    </script>
   </body>
 </html>
