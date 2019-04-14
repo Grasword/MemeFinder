@@ -6,7 +6,9 @@
         <span class="sr-only">Loading...</span>
       </div>
     </div>
-    <app-meme-component v-if="!isLoading"></app-meme-component>
+    <div class="row" v-if="!isLoading">
+      <app-meme-component v-for="meme in filteredMemes" :meme="meme" :key="meme.id"></app-meme-component>
+    </div>
   </div>
 </template>
 
@@ -23,6 +25,9 @@ export default {
     appMemeComponent: MemeComponent
   },
   computed: {
+    memes() {
+      return this.$store.getters.getMemes;
+    },
     filteredMemes() {
       return this.memes.filter(element => {
         const regex = new RegExp(this.filterText, "i");
@@ -32,6 +37,9 @@ export default {
     isLoading() {
       return this.$store.getters.loadingState;
     }
+  },
+  components: {
+    appMemeComponent: MemeComponent
   }
 };
 </script>
