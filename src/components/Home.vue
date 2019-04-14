@@ -14,15 +14,14 @@
 
 <script>
 import MemeComponent from "./memes/MemeComponent.vue";
-
 export default {
   data() {
     return {
       filterText: ""
     };
   },
-  components: {
-    appMemeComponent: MemeComponent
+  created() {
+    this.$store.dispatch("initMemes");
   },
   computed: {
     memes() {
@@ -43,7 +42,6 @@ export default {
   }
 };
 </script>
-
 
 <style scoped>
 img {
