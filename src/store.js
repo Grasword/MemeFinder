@@ -24,7 +24,8 @@ export default new Vuex.Store({
       commit("ADD_FAVORITE", meme);
     },
     initMemes: ({ commit }) => {
-      db.collection("memes")
+      return db
+        .collection("memes")
         .get()
         .then(snapshot => {
           let memes = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
