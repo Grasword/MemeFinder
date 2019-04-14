@@ -3,50 +3,63 @@
     <form action="submit" @submit.prevent="onSubmit">
       <div class="input">
         <label for="name">Name</label>
-        <input type="text" class="name" v-model="name" required>
+        <input type="text" class="name" v-model="form.name" required>
       </div>
       <div class="input">
         <label for="url">Url</label>
-        <input type="text" class="url" v-model="url" required>
+        <input type="text" class="url" v-model="form.url" required>
       </div>
-      <div class="input">
-        <label for="tags">tags</label>
-        <input type="text" class="tags" v-model="tags" required>
+      <div>
+        <label for="tags">Tags</label>
+        <vue-tags-input
+          class="tags"
+          v-model="form.tag"
+          :tags="form.tags"
+          :add-on-key="[13, ',', ';']"
+          @tags-changed="newTags => form.tags = newTags"
+        />
       </div>
       <div class="submit">
         <button type="submit">Submit</button>
       </div>
-      {{tagsArr}}
     </form>
   </div>
 </template>
 
 <script>
+import VueTagsInput from "@johmun/vue-tags-input";
+import db from "../../db.js";
+
 export default {
-    data() {
-        return {
-            name: '',
-            url: '',
-            tags: ''
-        }
-    },
-    computed: {
-        tagsArr() {
-            return this.tags.split(',')
-        }
-    },
-    methods: {
-        onSubmit() {
-            db.collection("memes").add({
-                name: this.name,
-                url: this.url,
-                tags: this.tags
-            })
-            form.name.value = ''
-            form.ulr.value = ''
-            form.tags.value = ''
-        }
+  data() {
+    const defaultForm = {
+      name: "",
+      url: "",
+      tag: "",
+      tags: []
+    };
+
+    return {
+      form: Object.assign({}, defaultForm),
+      defaultForm: Object.assign({}, defaultForm)
+    };
+  },
+  methods: {
+    onSubmit() {
+      db.collection("memes")
+        .add({
+          name: this.form.name,
+          url: this.form.url,
+          tags: this.form.tags.map(tag => tag.text)
+        })
+        .then(() => {
+          this.form = this.defaultForm;
+        });
     }
+  },
+  components: {
+    VueTagsInput
+  }
 };
 </script>
 
@@ -124,5 +137,14 @@ export default {
 }
 .invalid {
   color: red;
+}
+.tags {
+  font: inherit;
+  width: 100%;
+  padding-top: -6px;
+  padding-bottom: 6px;
+  box-sizing: border-box;
+  font-size: 18px;
+  margin-bottom: 12px;
 }
 </style>
