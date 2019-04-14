@@ -1,5 +1,6 @@
 <template>
   <div id="main" class="container">
+    <input class="mainInput" type="text" v-model="filterText" placeholder="Find your meme">
     <div v-if="isLoading" class="loading">
       <div class="spinner-border text-success" role="status">
         <span class="sr-only">Loading...</span>
@@ -14,12 +15,20 @@ import MemeComponent from "./memes/MemeComponent.vue";
 
 export default {
   data() {
-    return {};
+    return {
+      filterText: ""
+    };
   },
   components: {
     appMemeComponent: MemeComponent
   },
   computed: {
+    filteredMemes() {
+      return this.memes.filter(element => {
+        const regex = new RegExp(this.filterText, "i");
+        return regex.test(element.name);
+      });
+    },
     isLoading() {
       return this.$store.getters.loadingState;
     }
@@ -29,12 +38,20 @@ export default {
 
 
 <style scoped>
+img {
+  max-width: 100%;
+}
+.mainInput {
+  width: 50%;
+  margin: 30px 0;
+  padding: 5px;
+}
 #main {
   width: 80%;
   margin: auto;
   text-align: center;
 }
 .loading {
-  margin-top: 100px
+  margin-top: 100px;
 }
 </style>
