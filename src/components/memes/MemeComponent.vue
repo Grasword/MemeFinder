@@ -1,15 +1,15 @@
-<template>
-  <div>
-    <input class="mainInput" type="text" v-model="filterText">
-    <div class="memes">
-      <div v-for="meme in filteredMemes" :key="meme.id" class="memes__item">
-        <router-link :to="`/meme/${meme.id}`">
-          <img :src="meme.url">
-          <p>{{meme.name}}</p>
-        </router-link>
+<template>  
+    <div>
+      <input class="mainInput" type="text" v-model="filterText">
+      <div class="row">
+        <div v-for="meme in filteredMemes" :key="meme.id" class="col-xl-4">
+          <router-link :to="`/meme/${meme.id}`">
+            <img :src="meme.url">
+            <p>{{meme.name}}</p>
+          </router-link>
+        </div>
       </div>
-    </div>
-  </div>
+    </div>  
 </template>
 
 <script>
@@ -36,15 +36,7 @@ export default {
 
 <style scoped>
 img {
-  max-width: 400px;
-}
-.memes {
-  display: flex;
-  flex-flow: row wrap;
-}
-.memes__item {
-  margin: 5px;
-  flex: 1 1 32%;
+  max-width: 100%;
 }
 .mainInput {
   width: 50%;
