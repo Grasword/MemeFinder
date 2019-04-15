@@ -1,11 +1,11 @@
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyDPOsDsy279_qZhulgLvGtO4qempaOP-aQ",
-  authDomain: "memefinder-f5e33.firebaseapp.com",
-  databaseURL: "https://memefinder-f5e33.firebaseio.com",
-  projectId: "memefinder-f5e33",
-  storageBucket: "memefinder-f5e33.appspot.com",
-  messagingSenderId: "808732065991"
+  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
+  authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.VUE_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID
 };
 
 firebase.initializeApp(config);
