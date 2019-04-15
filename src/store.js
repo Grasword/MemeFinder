@@ -12,7 +12,9 @@ export default new Vuex.Store({
   },
   mutations: {
     ADD_FAVORITE(state, meme) {
-      state.favorites.push(meme);
+      if (!state.favorites.some(favorite => favorite.id === meme.id)) {
+        state.favorites.push(meme);
+      }
     },
     INIT_MEMES(state, memes) {
       state.memes = memes;
